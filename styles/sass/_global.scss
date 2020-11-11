@@ -1,0 +1,22 @@
+// Defining my variables
+$primary: #4C0341;
+$secondary: #FAE5FF;
+
+@mixin button-def ($btn-transform, $btn-color, $btn-bgd-color, $btn-padding, $btn-border, $btn-font-size) {
+  text-transform: $btn-transform;
+  color: $btn-color;
+  background-color: $btn-bgd-color;
+  padding: $btn-padding;
+  border: $btn-border;
+  font-size: $btn-font-size;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.wrapper {
+  max-width: 1240px;
+  width: 85%;
+  margin: 0 auto;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Can You Guess The Word?</title>
+  <!-- Font Awesome Kit Code -->
+  <script src="https://kit.fontawesome.com/b5138e5c42.js" crossorigin="anonymous"></script>
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./styles/style.css">
+  </head>
+  
+  <body>
+    <header class="wrapper">
+      <h1>Can You Guess The Word?</h1>
+      <p>Instructions</p>
+      <p>You have 60 seconds to guess the image correctly! You have unlimited guesses as long as time remains. The word
+        will contain no numbers or special characters, just plain A-Z alphabets. Good Luck!</p>
+      <button class="start">START</button>
+    </header>
+
+    <main>
+      <section class="play wrapper">
+        <h2>Can You Guess The Word?</h2>
+        <div class="grid-container">
+          <img class="grid-item1" id="image" src="./assets/image0.jpg" alt="a random picture that the user has to guess!">
+          <div class="grid-item2">
+            <p class="grid-timer" id="timer"></p>
+            <p class="grid-spaces" id="spaces">_ _ _ _ _</p>
+          </div>
+        </div>
+        <form class="guess-container">
+          <label for="guess" class="sr-only">Enter Your Guess Here</label>
+          <input id="guess" type="text" name="guess" required placeholder="Guess Here">
+        </form>
+      </section>
+
+      <section class="winner">
+        <h2>You Won! Congrats!</h2>
+        <button id="restart">Restart</button>
+      </section>
+
+      <section class="game-over">
+        <h2>AUUUGGHH Better Luck Next Time!</h2>
+        <button id="play-again">Play Again?</button>
+      </section>
+    </main>
+
+    <script src='https://code.jquery.com/jquery-3.4.0.min.js'
+      integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
+    <script src="script.js"></script>
+  </body>
+  
+  </html>

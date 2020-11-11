@@ -1,0 +1,21 @@
+.winner {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    font-size: 5rem;
+  }
+
+  button {
+    @include button-def(uppercase, #FFFFFF, $primary, 5px 15px, none, 3rem);
+    width: 200px; height: 70px;
+  }
+
+  button:hover, button:focus {
+    background-color: orangered;
+    cursor: pointer;
+  }
+}

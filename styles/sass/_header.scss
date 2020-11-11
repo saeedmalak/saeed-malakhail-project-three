@@ -1,0 +1,33 @@
+header {
+  min-height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 6rem;
+    margin-bottom: 20px;
+  }
+
+  p {
+      font-size: 3rem;
+      margin-bottom: 20px;
+  }
+
+  p:nth-of-type(1) {
+    text-transform: uppercase;
+  }
+
+  button {
+    @include button-def(uppercase, #FFFFFF, $primary, 5px 15px, none, 3rem);
+    width: 200px; height: 70px;
+  }
+
+  button:hover, button:focus {
+    background-color: orangered;
+    cursor: pointer;
+  }
+
+}
