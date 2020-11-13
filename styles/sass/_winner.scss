@@ -1,5 +1,6 @@
 .winner {
   min-height: 100vh;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,4 +19,75 @@
     background-color: orangered;
     cursor: pointer;
   }
+
+  // Animate icons moving from bottom of screen to the top
+  li:nth-child(1) {
+    @include icons-moving-up(darkmagenta, 0);
+  }
+  li:nth-child(2) {
+    @include icons-moving-up(blue, 100px);
+  }
+  li:nth-child(3) {
+    @include icons-moving-up(red, 200px);
+  }
+  li:nth-child(4){
+    @include icons-moving-up(red, 400px);
+  }
+  li:nth-child(5) {
+    @include icons-moving-up(blue, 500px);
+  }
+  li:nth-child(6) {
+    @include icons-moving-up(darkmagenta, 600px);
+  }
+  li:nth-child(7) {
+    @include icons-moving-up(darkmagenta, 800px);
+  }
+  li:nth-child(8) {
+    @include icons-moving-up(blue, 900px);
+  }
+  li:nth-child(9) {
+    @include icons-moving-up(red, 1000px);
+  }
+  li:nth-child(10) {
+    @include icons-moving-up(red, 300px);
+  }
+  li:nth-child(11) {
+    @include icons-moving-up(red, 700px);
+  }
+
+  // Animate icons moving from top of screen to bottom
+  li:nth-child(12) {
+    @include icons-moving-down (darkmagenta, 0);
+  }
+  li:nth-child(13) {
+    @include icons-moving-down(blue, 100px);
+  }
+  li:nth-child(14) {
+    @include icons-moving-down(red, 200px);
+  }
+  li:nth-child(15) {
+    @include icons-moving-down(black, 300px);
+  }
+  li:nth-child(16) {
+    @include icons-moving-down(red, 400px);
+  }
+  li:nth-child(17) {
+    @include icons-moving-down(blue, 500px);
+  }
+  li:nth-child(18) {
+    @include icons-moving-down(darkmagenta, 600px);
+  }
+  li:nth-child(19) {
+    @include icons-moving-down(black, 700px);
+  }
+  li:nth-child(20) {
+    @include icons-moving-down(darkmagenta, 800px);
+  }
+  li:nth-child(21) {
+    @include icons-moving-down(blue, 900px);
+  }
+  li:nth-child(22) {
+    @include icons-moving-down(red, 1000px);
+  }
+
 }

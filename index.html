@@ -8,6 +8,8 @@
   <script src="https://kit.fontawesome.com/b5138e5c42.js" crossorigin="anonymous"></script>
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="./styles/style.css">
+  <!-- CSS Animate Stylesheet  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   </head>
   
   <body>
@@ -22,27 +24,36 @@
     <main>
       <section class="play wrapper">
         <h2>Can You Guess The Word?</h2>
-        <div class="grid-container">
-          <img class="grid-item1" id="image" src="./assets/image0.jpg" alt="a random picture that the user has to guess!">
-          <div class="grid-item2">
-            <p class="grid-timer" id="timer"></p>
-            <p class="grid-spaces" id="spaces">_ _ _ _ _</p>
+
+        <div class="flex-container">
+          <div class="img-container">
+            <!-- The image, timer and number of "_" spaces will be dynamically updated here (based on random index array)  -->
+            <p class="flex-timer" id="timer"></p>
+            <img class="flex-item1" id="image" src="./assets/image0.jpg" alt="a random picture that the user has to guess!">
+            <p class="flex-spaces" id="spaces">_ _ _ _ _</p>
           </div>
         </div>
+
         <form class="guess-container">
           <label for="guess" class="sr-only">Enter Your Guess Here</label>
           <input id="guess" type="text" name="guess" required placeholder="Guess Here">
         </form>
       </section>
 
-      <section class="winner">
-        <h2>You Won! Congrats!</h2>
-        <button id="restart">Restart</button>
+      <section class="winner wrapper">
+        <h2 id="winner-message">You Won! Congrats!</h2>
+        <button class="animate__animated animate__heartBeat" id="restart">Restart</button>
+        <!-- A list of 'happy' icons will be dynamically populated here inside 'ul' upon winning the game! -->
+        <ul class="winning-icons">
+        </ul>
       </section>
 
-      <section class="game-over">
+      <section class="game-over wrapper">
         <h2>AUUUGGHH Better Luck Next Time!</h2>
         <button id="play-again">Play Again?</button>
+        <!-- A list of 'sad' icons will be dynamically populated here inside 'ul' upon losing the game :( -->
+        <ul class="game-over-icons">
+        </ul>
       </section>
     </main>
 

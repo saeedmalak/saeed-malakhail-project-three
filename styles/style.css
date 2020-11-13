@@ -235,6 +235,10 @@ html {
   overflow: hidden;
 }
 
+body {
+  background-color: #add8e6;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -247,6 +251,10 @@ html {
 
 h1, h2, p {
   margin: 0;
+}
+
+li {
+  list-style-type: none;
 }
 
 header {
@@ -306,63 +314,40 @@ main .play h2 {
   text-align: center;
 }
 
-main .play .grid-container {
-  display: -ms-grid;
-  display: grid;
-  gap: 0px 40px;
-      grid-template-areas: "grid-item1 grid-item2" "grid-item1 grid-item2";
-  -ms-grid-columns: 1fr 2fr;
-      grid-template-columns: 1fr 2fr;
-}
-
-main .play .grid-container .grid-item1 {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 2;
-  -ms-grid-column: 1;
-  grid-area: grid-item1;
-}
-
-main .play .grid-container .grid-item2 {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 2;
-  -ms-grid-column: 2;
-  grid-area: grid-item2;
-  -ms-grid-rows: 1fr 4fr;
-      grid-template-rows: 1fr 4fr;
-}
-
-main .play .grid-item2 {
-  display: -ms-grid;
-  display: grid;
-      grid-template-areas: "grid-timer" "grid-spaces";
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-main .play .grid-item2 .grid-timer {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: grid-timer;
+main .play .flex-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 50%;
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(100%, #75ff30), color-stop(0, #75ff30));
-  background-image: linear-gradient(90deg, #75ff30 100%, #75ff30 0);
-  -webkit-animation: blinds 1s ease-in-out infinite alternate;
-          animation: blinds 1s ease-in-out infinite alternate;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 50px;
 }
 
-main .play .grid-item2 .grid-spaces {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  grid-area: grid-spaces;
-  margin-bottom: 90px;
-  font-size: 10rem;
+main .play .flex-container .img-container {
+  padding: 0 10px;
+}
+
+main .play .flex-container .img-container img {
+  width: 100%;
+  border: solid 5px #fff;
+}
+
+main .play .flex-container .img-container p {
+  text-align: center;
+}
+
+main .play .flex-container .img-container #timer {
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(100%, #75ff30), color-stop(0, #75ff30));
+  background-image: linear-gradient(90deg, #75ff30 100%, #75ff30 0);
+  margin-bottom: 20px;
 }
 
 main .play .guess-container {
@@ -378,6 +363,7 @@ main .play .guess-container {
 
 .winner {
   min-height: 100vh;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -411,6 +397,248 @@ main .play .guess-container {
 .winner button:hover, .winner button:focus {
   background-color: orangered;
   cursor: pointer;
+}
+
+.winner li:nth-child(1) {
+  --animate-duration: 5s;
+  color: darkmagenta;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+.winner li:nth-child(2) {
+  --animate-duration: 5s;
+  color: blue;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 100px;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+.winner li:nth-child(3) {
+  --animate-duration: 5s;
+  color: red;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 200px;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+.winner li:nth-child(4) {
+  --animate-duration: 5s;
+  color: red;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 400px;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+.winner li:nth-child(5) {
+  --animate-duration: 5s;
+  color: blue;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 500px;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+.winner li:nth-child(6) {
+  --animate-duration: 5s;
+  color: darkmagenta;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 600px;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+.winner li:nth-child(7) {
+  --animate-duration: 5s;
+  color: darkmagenta;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 800px;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+.winner li:nth-child(8) {
+  --animate-duration: 5s;
+  color: blue;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 900px;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+.winner li:nth-child(9) {
+  --animate-duration: 5s;
+  color: red;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 1000px;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+.winner li:nth-child(10) {
+  --animate-duration: 5s;
+  color: red;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 300px;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+.winner li:nth-child(11) {
+  --animate-duration: 5s;
+  color: red;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 700px;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+.winner li:nth-child(12) {
+  --animate-duration: 5s;
+  color: darkmagenta;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 10rem;
+}
+
+.winner li:nth-child(13) {
+  --animate-duration: 5s;
+  color: blue;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 100px;
+  top: 0;
+  font-size: 10rem;
+}
+
+.winner li:nth-child(14) {
+  --animate-duration: 5s;
+  color: red;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 200px;
+  top: 0;
+  font-size: 10rem;
+}
+
+.winner li:nth-child(15) {
+  --animate-duration: 5s;
+  color: black;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 300px;
+  top: 0;
+  font-size: 10rem;
+}
+
+.winner li:nth-child(16) {
+  --animate-duration: 5s;
+  color: red;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 400px;
+  top: 0;
+  font-size: 10rem;
+}
+
+.winner li:nth-child(17) {
+  --animate-duration: 5s;
+  color: blue;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 500px;
+  top: 0;
+  font-size: 10rem;
+}
+
+.winner li:nth-child(18) {
+  --animate-duration: 5s;
+  color: darkmagenta;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 600px;
+  top: 0;
+  font-size: 10rem;
+}
+
+.winner li:nth-child(19) {
+  --animate-duration: 5s;
+  color: black;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 700px;
+  top: 0;
+  font-size: 10rem;
+}
+
+.winner li:nth-child(20) {
+  --animate-duration: 5s;
+  color: darkmagenta;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 800px;
+  top: 0;
+  font-size: 10rem;
+}
+
+.winner li:nth-child(21) {
+  --animate-duration: 5s;
+  color: blue;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 900px;
+  top: 0;
+  font-size: 10rem;
+}
+
+.winner li:nth-child(22) {
+  --animate-duration: 5s;
+  color: red;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 1000px;
+  top: 0;
+  font-size: 10rem;
 }
 
 .game-over {
@@ -448,4 +676,246 @@ main .play .guess-container {
 .game-over button:hover, .game-over button:focus {
   background-color: orangered;
   cursor: pointer;
+}
+
+.game-over li:nth-child(1) {
+  --animate-duration: 5s;
+  color: darkmagenta;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+.game-over li:nth-child(2) {
+  --animate-duration: 5s;
+  color: blue;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 100px;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+.game-over li:nth-child(3) {
+  --animate-duration: 5s;
+  color: red;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 200px;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+.game-over li:nth-child(4) {
+  --animate-duration: 5s;
+  color: red;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 400px;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+.game-over li:nth-child(5) {
+  --animate-duration: 5s;
+  color: blue;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 500px;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+.game-over li:nth-child(6) {
+  --animate-duration: 5s;
+  color: darkmagenta;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 600px;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+.game-over li:nth-child(7) {
+  --animate-duration: 5s;
+  color: darkmagenta;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 800px;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+.game-over li:nth-child(8) {
+  --animate-duration: 5s;
+  color: blue;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 900px;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+.game-over li:nth-child(9) {
+  --animate-duration: 5s;
+  color: red;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 1000px;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+.game-over li:nth-child(10) {
+  --animate-duration: 5s;
+  color: red;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 300px;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+.game-over li:nth-child(11) {
+  --animate-duration: 5s;
+  color: red;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 700px;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+.game-over li:nth-child(12) {
+  --animate-duration: 5s;
+  color: darkmagenta;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 10rem;
+}
+
+.game-over li:nth-child(13) {
+  --animate-duration: 5s;
+  color: blue;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 100px;
+  top: 0;
+  font-size: 10rem;
+}
+
+.game-over li:nth-child(14) {
+  --animate-duration: 5s;
+  color: red;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 200px;
+  top: 0;
+  font-size: 10rem;
+}
+
+.game-over li:nth-child(15) {
+  --animate-duration: 5s;
+  color: black;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 300px;
+  top: 0;
+  font-size: 10rem;
+}
+
+.game-over li:nth-child(16) {
+  --animate-duration: 5s;
+  color: red;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 400px;
+  top: 0;
+  font-size: 10rem;
+}
+
+.game-over li:nth-child(17) {
+  --animate-duration: 5s;
+  color: blue;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 500px;
+  top: 0;
+  font-size: 10rem;
+}
+
+.game-over li:nth-child(18) {
+  --animate-duration: 5s;
+  color: darkmagenta;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 600px;
+  top: 0;
+  font-size: 10rem;
+}
+
+.game-over li:nth-child(19) {
+  --animate-duration: 5s;
+  color: black;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 700px;
+  top: 0;
+  font-size: 10rem;
+}
+
+.game-over li:nth-child(20) {
+  --animate-duration: 5s;
+  color: darkmagenta;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 800px;
+  top: 0;
+  font-size: 10rem;
+}
+
+.game-over li:nth-child(21) {
+  --animate-duration: 5s;
+  color: blue;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 900px;
+  top: 0;
+  font-size: 10rem;
+}
+
+.game-over li:nth-child(22) {
+  --animate-duration: 5s;
+  color: red;
+  -webkit-filter: contrast(40%);
+          filter: contrast(40%);
+  position: absolute;
+  left: 1000px;
+  top: 0;
+  font-size: 10rem;
 }

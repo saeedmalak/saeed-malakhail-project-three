@@ -1,6 +1,10 @@
 // Defining my variables
 $primary: #4C0341;
-$secondary: #FAE5FF;
+$secondary: #add8e6;
+
+body {
+  background-color: $secondary;
+}
 
 @mixin button-def ($btn-transform, $btn-color, $btn-bgd-color, $btn-padding, $btn-border, $btn-font-size) {
   text-transform: $btn-transform;
@@ -9,6 +13,27 @@ $secondary: #FAE5FF;
   padding: $btn-padding;
   border: $btn-border;
   font-size: $btn-font-size;
+}
+
+
+@mixin icons-moving-up ($icon-color, $icon-left) {
+  --animate-duration: 5s;
+  color: $icon-color; 
+  filter: contrast(40%);
+  position: absolute;
+  left: $icon-left;
+  bottom: 0;
+  font-size: 10rem;
+}
+
+@mixin icons-moving-down ($icon-color, $icon-left) {
+  --animate-duration: 5s;
+  color: $icon-color; 
+  filter: contrast(40%);
+  position: absolute;
+  left: $icon-left;
+  top: 0;
+  font-size: 10rem;
 }
 
 html {
@@ -20,3 +45,4 @@ html {
   width: 85%;
   margin: 0 auto;
 }
+
