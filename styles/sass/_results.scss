@@ -1,4 +1,4 @@
-.winner {
+.results {
   min-height: 100vh;
   position: relative;
   display: flex;
@@ -7,11 +7,15 @@
   align-items: center;
 
   h2 {
-    font-size: 5rem;
+    margin-bottom: 20px;
+  }
+
+  .home-page-btn {
+    margin-left: 20px;
   }
 
   button {
-    @include button-def(uppercase, #FFFFFF, $primary, 5px 15px, none, 3rem);
+    @include button-def(uppercase, #FFFFFF, $primary, 5px 15px, none, 2.8rem);
     width: 200px; height: 70px;
   }
 

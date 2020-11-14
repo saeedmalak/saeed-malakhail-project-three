@@ -1,8 +1,8 @@
 main .play {
   min-height: 100vh;
-  font-size: 5rem;
+
   h2 {
-    text-align: center;
+    margin-top: 40px;
   }
 
   .flex-container {
@@ -10,69 +10,44 @@ main .play {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 50px;
+    padding: 20px;
+
+    .flex-spaces {
+      font-size: 6rem;
+      margin-top: 20px;
+    }
     .img-container {
       padding: 0 10px;
+      width: 300px;
       img {
         width: 100%;
         border: solid 5px #fff;
       }
-      p {
-        text-align: center;
-      }
       #timer {
-        background-image: linear-gradient(90deg,  #75ff30 100%, #75ff30 0);
-        margin-bottom: 20px;
+        background: linear-gradient(to right, #1cd8d2, #93edc7);
+      }
+      .timer-alert {
+        animation: blinds 1s ease-in-out infinite alternate;
       }
     }
   }
-
-  // .grid-container {
-  //   display: grid;
-  //   gap: 0px 40px;
-  //   grid-template-areas: 
-  //   "grid-item1 grid-item2"
-  //   "grid-item1 grid-item2";
-  //   grid-template-columns: 1fr 2fr;
-  //   .grid-item1 {
-  //     grid-area: grid-item1;
-  //   }
-  //   .grid-item2 {
-  //     grid-area: grid-item2;
-  //     grid-template-rows: 1fr 4fr;
-  //   }
-  // }
-  // .grid-item2 {
-  //   display: grid;
-  //   grid-template-areas: 
-  //   "grid-timer"
-  //   "grid-spaces";
-  //   align-items: center;
-  //   .grid-timer {
-  //     grid-area: grid-timer;
-  //     display: flex;
-  //     justify-content: center;
-  //     width: 50%;
-  //     background-image: linear-gradient(90deg,  #75ff30 100%, #75ff30 0);
-  //     animation: blinds 1s ease-in-out infinite alternate;
-  //   }
-  //   .grid-spaces {
-  //     grid-area: grid-spaces;
-  //     margin-bottom: 90px;
-  //     font-size: 10rem;
-  //   }
-  // }
-
+  
   .guess-container {
     display: flex;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 20px;
     font-size: 3rem;
+
+    input {
+      width: 50%;
+      background: linear-gradient(to right, #1cd8d2, #93edc7);
+      color: black;
+    }
   }
 }
 
-// @keyframes blinds {
-//   to {
-//     background-image: linear-gradient(90deg,  #75ff30 100%, #75ff30 0);
-//   }
-// }
+@keyframes blinds {
+  to {
+    background: linear-gradient(to right, #c21500, #ffc500);
+  }
+}

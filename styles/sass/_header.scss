@@ -7,17 +7,16 @@ header {
   align-items: center;
 
   h1 {
-    font-size: 6rem;
     margin-bottom: 20px;
   }
 
   p {
-      font-size: 3rem;
-      margin-bottom: 20px;
+    margin-bottom: 20px;
   }
 
   p:nth-of-type(1) {
     text-transform: uppercase;
+    font-style: italic;
   }
 
   button {

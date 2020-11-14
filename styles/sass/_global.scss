@@ -1,4 +1,4 @@
-// Defining my variables
+// Defining my primary & secondary colour variables
 $primary: #4C0341;
 $secondary: #add8e6;
 
@@ -6,6 +6,7 @@ body {
   background-color: $secondary;
 }
 
+// create a button definition function to be used over and over again
 @mixin button-def ($btn-transform, $btn-color, $btn-bgd-color, $btn-padding, $btn-border, $btn-font-size) {
   text-transform: $btn-transform;
   color: $btn-color;
@@ -15,7 +16,7 @@ body {
   font-size: $btn-font-size;
 }
 
-
+// create a function for icons moving from bottom to the top of screen using the animate CDN
 @mixin icons-moving-up ($icon-color, $icon-left) {
   --animate-duration: 5s;
   color: $icon-color; 
@@ -26,6 +27,7 @@ body {
   font-size: 10rem;
 }
 
+// create a function for icons moving from the top to bottom of screen using animations
 @mixin icons-moving-down ($icon-color, $icon-left) {
   --animate-duration: 5s;
   color: $icon-color; 

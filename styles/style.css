@@ -249,6 +249,31 @@ html {
   margin: 0 auto;
 }
 
+h1, h2 {
+  font-family: 'Rufina', serif;
+}
+
+p, button, input {
+  font-family: 'Oxygen', sans-serif;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+h2 {
+  font-size: 5rem;
+}
+
+h2, p {
+  text-align: center;
+}
+
+p {
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
 h1, h2, p {
   margin: 0;
 }
@@ -276,17 +301,16 @@ header {
 }
 
 header h1 {
-  font-size: 6rem;
   margin-bottom: 20px;
 }
 
 header p {
-  font-size: 3rem;
   margin-bottom: 20px;
 }
 
 header p:nth-of-type(1) {
   text-transform: uppercase;
+  font-style: italic;
 }
 
 header button {
@@ -307,11 +331,10 @@ header button:hover, header button:focus {
 
 main .play {
   min-height: 100vh;
-  font-size: 5rem;
 }
 
 main .play h2 {
-  text-align: center;
+  margin-top: 40px;
 }
 
 main .play .flex-container {
@@ -328,11 +351,17 @@ main .play .flex-container {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 50px;
+  padding: 20px;
+}
+
+main .play .flex-container .flex-spaces {
+  font-size: 6rem;
+  margin-top: 20px;
 }
 
 main .play .flex-container .img-container {
   padding: 0 10px;
+  width: 300px;
 }
 
 main .play .flex-container .img-container img {
@@ -340,14 +369,14 @@ main .play .flex-container .img-container img {
   border: solid 5px #fff;
 }
 
-main .play .flex-container .img-container p {
-  text-align: center;
+main .play .flex-container .img-container #timer {
+  background: -webkit-gradient(linear, left top, right top, from(#1cd8d2), to(#93edc7));
+  background: linear-gradient(to right, #1cd8d2, #93edc7);
 }
 
-main .play .flex-container .img-container #timer {
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(100%, #75ff30), color-stop(0, #75ff30));
-  background-image: linear-gradient(90deg, #75ff30 100%, #75ff30 0);
-  margin-bottom: 20px;
+main .play .flex-container .img-container .timer-alert {
+  -webkit-animation: blinds 1s ease-in-out infinite alternate;
+          animation: blinds 1s ease-in-out infinite alternate;
 }
 
 main .play .guess-container {
@@ -357,11 +386,32 @@ main .play .guess-container {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 40px;
+  margin-top: 20px;
   font-size: 3rem;
 }
 
-.winner {
+main .play .guess-container input {
+  width: 50%;
+  background: -webkit-gradient(linear, left top, right top, from(#1cd8d2), to(#93edc7));
+  background: linear-gradient(to right, #1cd8d2, #93edc7);
+  color: black;
+}
+
+@-webkit-keyframes blinds {
+  to {
+    background: -webkit-gradient(linear, left top, right top, from(#c21500), to(#ffc500));
+    background: linear-gradient(to right, #c21500, #ffc500);
+  }
+}
+
+@keyframes blinds {
+  to {
+    background: -webkit-gradient(linear, left top, right top, from(#c21500), to(#ffc500));
+    background: linear-gradient(to right, #c21500, #ffc500);
+  }
+}
+
+.results {
   min-height: 100vh;
   position: relative;
   display: -webkit-box;
@@ -379,27 +429,31 @@ main .play .guess-container {
           align-items: center;
 }
 
-.winner h2 {
-  font-size: 5rem;
+.results h2 {
+  margin-bottom: 20px;
 }
 
-.winner button {
+.results .home-page-btn {
+  margin-left: 20px;
+}
+
+.results button {
   text-transform: uppercase;
   color: #FFFFFF;
   background-color: #4C0341;
   padding: 5px 15px;
   border: none;
-  font-size: 3rem;
+  font-size: 2.8rem;
   width: 200px;
   height: 70px;
 }
 
-.winner button:hover, .winner button:focus {
+.results button:hover, .results button:focus {
   background-color: orangered;
   cursor: pointer;
 }
 
-.winner li:nth-child(1) {
+.results li:nth-child(1) {
   --animate-duration: 5s;
   color: darkmagenta;
   -webkit-filter: contrast(40%);
@@ -410,7 +464,7 @@ main .play .guess-container {
   font-size: 10rem;
 }
 
-.winner li:nth-child(2) {
+.results li:nth-child(2) {
   --animate-duration: 5s;
   color: blue;
   -webkit-filter: contrast(40%);
@@ -421,7 +475,7 @@ main .play .guess-container {
   font-size: 10rem;
 }
 
-.winner li:nth-child(3) {
+.results li:nth-child(3) {
   --animate-duration: 5s;
   color: red;
   -webkit-filter: contrast(40%);
@@ -432,7 +486,7 @@ main .play .guess-container {
   font-size: 10rem;
 }
 
-.winner li:nth-child(4) {
+.results li:nth-child(4) {
   --animate-duration: 5s;
   color: red;
   -webkit-filter: contrast(40%);
@@ -443,7 +497,7 @@ main .play .guess-container {
   font-size: 10rem;
 }
 
-.winner li:nth-child(5) {
+.results li:nth-child(5) {
   --animate-duration: 5s;
   color: blue;
   -webkit-filter: contrast(40%);
@@ -454,7 +508,7 @@ main .play .guess-container {
   font-size: 10rem;
 }
 
-.winner li:nth-child(6) {
+.results li:nth-child(6) {
   --animate-duration: 5s;
   color: darkmagenta;
   -webkit-filter: contrast(40%);
@@ -465,7 +519,7 @@ main .play .guess-container {
   font-size: 10rem;
 }
 
-.winner li:nth-child(7) {
+.results li:nth-child(7) {
   --animate-duration: 5s;
   color: darkmagenta;
   -webkit-filter: contrast(40%);
@@ -476,7 +530,7 @@ main .play .guess-container {
   font-size: 10rem;
 }
 
-.winner li:nth-child(8) {
+.results li:nth-child(8) {
   --animate-duration: 5s;
   color: blue;
   -webkit-filter: contrast(40%);
@@ -487,7 +541,7 @@ main .play .guess-container {
   font-size: 10rem;
 }
 
-.winner li:nth-child(9) {
+.results li:nth-child(9) {
   --animate-duration: 5s;
   color: red;
   -webkit-filter: contrast(40%);
@@ -498,7 +552,7 @@ main .play .guess-container {
   font-size: 10rem;
 }
 
-.winner li:nth-child(10) {
+.results li:nth-child(10) {
   --animate-duration: 5s;
   color: red;
   -webkit-filter: contrast(40%);
@@ -509,7 +563,7 @@ main .play .guess-container {
   font-size: 10rem;
 }
 
-.winner li:nth-child(11) {
+.results li:nth-child(11) {
   --animate-duration: 5s;
   color: red;
   -webkit-filter: contrast(40%);
@@ -520,7 +574,7 @@ main .play .guess-container {
   font-size: 10rem;
 }
 
-.winner li:nth-child(12) {
+.results li:nth-child(12) {
   --animate-duration: 5s;
   color: darkmagenta;
   -webkit-filter: contrast(40%);
@@ -531,7 +585,7 @@ main .play .guess-container {
   font-size: 10rem;
 }
 
-.winner li:nth-child(13) {
+.results li:nth-child(13) {
   --animate-duration: 5s;
   color: blue;
   -webkit-filter: contrast(40%);
@@ -542,7 +596,7 @@ main .play .guess-container {
   font-size: 10rem;
 }
 
-.winner li:nth-child(14) {
+.results li:nth-child(14) {
   --animate-duration: 5s;
   color: red;
   -webkit-filter: contrast(40%);
@@ -553,7 +607,7 @@ main .play .guess-container {
   font-size: 10rem;
 }
 
-.winner li:nth-child(15) {
+.results li:nth-child(15) {
   --animate-duration: 5s;
   color: black;
   -webkit-filter: contrast(40%);
@@ -564,7 +618,7 @@ main .play .guess-container {
   font-size: 10rem;
 }
 
-.winner li:nth-child(16) {
+.results li:nth-child(16) {
   --animate-duration: 5s;
   color: red;
   -webkit-filter: contrast(40%);
@@ -575,7 +629,7 @@ main .play .guess-container {
   font-size: 10rem;
 }
 
-.winner li:nth-child(17) {
+.results li:nth-child(17) {
   --animate-duration: 5s;
   color: blue;
   -webkit-filter: contrast(40%);
@@ -586,7 +640,7 @@ main .play .guess-container {
   font-size: 10rem;
 }
 
-.winner li:nth-child(18) {
+.results li:nth-child(18) {
   --animate-duration: 5s;
   color: darkmagenta;
   -webkit-filter: contrast(40%);
@@ -597,7 +651,7 @@ main .play .guess-container {
   font-size: 10rem;
 }
 
-.winner li:nth-child(19) {
+.results li:nth-child(19) {
   --animate-duration: 5s;
   color: black;
   -webkit-filter: contrast(40%);
@@ -608,7 +662,7 @@ main .play .guess-container {
   font-size: 10rem;
 }
 
-.winner li:nth-child(20) {
+.results li:nth-child(20) {
   --animate-duration: 5s;
   color: darkmagenta;
   -webkit-filter: contrast(40%);
@@ -619,7 +673,7 @@ main .play .guess-container {
   font-size: 10rem;
 }
 
-.winner li:nth-child(21) {
+.results li:nth-child(21) {
   --animate-duration: 5s;
   color: blue;
   -webkit-filter: contrast(40%);
@@ -630,286 +684,7 @@ main .play .guess-container {
   font-size: 10rem;
 }
 
-.winner li:nth-child(22) {
-  --animate-duration: 5s;
-  color: red;
-  -webkit-filter: contrast(40%);
-          filter: contrast(40%);
-  position: absolute;
-  left: 1000px;
-  top: 0;
-  font-size: 10rem;
-}
-
-.game-over {
-  min-height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.game-over h2 {
-  font-size: 5rem;
-}
-
-.game-over button {
-  text-transform: uppercase;
-  color: #FFFFFF;
-  background-color: #4C0341;
-  padding: 5px 15px;
-  border: none;
-  font-size: 3rem;
-  width: 200px;
-  height: 70px;
-}
-
-.game-over button:hover, .game-over button:focus {
-  background-color: orangered;
-  cursor: pointer;
-}
-
-.game-over li:nth-child(1) {
-  --animate-duration: 5s;
-  color: darkmagenta;
-  -webkit-filter: contrast(40%);
-          filter: contrast(40%);
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  font-size: 10rem;
-}
-
-.game-over li:nth-child(2) {
-  --animate-duration: 5s;
-  color: blue;
-  -webkit-filter: contrast(40%);
-          filter: contrast(40%);
-  position: absolute;
-  left: 100px;
-  bottom: 0;
-  font-size: 10rem;
-}
-
-.game-over li:nth-child(3) {
-  --animate-duration: 5s;
-  color: red;
-  -webkit-filter: contrast(40%);
-          filter: contrast(40%);
-  position: absolute;
-  left: 200px;
-  bottom: 0;
-  font-size: 10rem;
-}
-
-.game-over li:nth-child(4) {
-  --animate-duration: 5s;
-  color: red;
-  -webkit-filter: contrast(40%);
-          filter: contrast(40%);
-  position: absolute;
-  left: 400px;
-  bottom: 0;
-  font-size: 10rem;
-}
-
-.game-over li:nth-child(5) {
-  --animate-duration: 5s;
-  color: blue;
-  -webkit-filter: contrast(40%);
-          filter: contrast(40%);
-  position: absolute;
-  left: 500px;
-  bottom: 0;
-  font-size: 10rem;
-}
-
-.game-over li:nth-child(6) {
-  --animate-duration: 5s;
-  color: darkmagenta;
-  -webkit-filter: contrast(40%);
-          filter: contrast(40%);
-  position: absolute;
-  left: 600px;
-  bottom: 0;
-  font-size: 10rem;
-}
-
-.game-over li:nth-child(7) {
-  --animate-duration: 5s;
-  color: darkmagenta;
-  -webkit-filter: contrast(40%);
-          filter: contrast(40%);
-  position: absolute;
-  left: 800px;
-  bottom: 0;
-  font-size: 10rem;
-}
-
-.game-over li:nth-child(8) {
-  --animate-duration: 5s;
-  color: blue;
-  -webkit-filter: contrast(40%);
-          filter: contrast(40%);
-  position: absolute;
-  left: 900px;
-  bottom: 0;
-  font-size: 10rem;
-}
-
-.game-over li:nth-child(9) {
-  --animate-duration: 5s;
-  color: red;
-  -webkit-filter: contrast(40%);
-          filter: contrast(40%);
-  position: absolute;
-  left: 1000px;
-  bottom: 0;
-  font-size: 10rem;
-}
-
-.game-over li:nth-child(10) {
-  --animate-duration: 5s;
-  color: red;
-  -webkit-filter: contrast(40%);
-          filter: contrast(40%);
-  position: absolute;
-  left: 300px;
-  bottom: 0;
-  font-size: 10rem;
-}
-
-.game-over li:nth-child(11) {
-  --animate-duration: 5s;
-  color: red;
-  -webkit-filter: contrast(40%);
-          filter: contrast(40%);
-  position: absolute;
-  left: 700px;
-  bottom: 0;
-  font-size: 10rem;
-}
-
-.game-over li:nth-child(12) {
-  --animate-duration: 5s;
-  color: darkmagenta;
-  -webkit-filter: contrast(40%);
-          filter: contrast(40%);
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-size: 10rem;
-}
-
-.game-over li:nth-child(13) {
-  --animate-duration: 5s;
-  color: blue;
-  -webkit-filter: contrast(40%);
-          filter: contrast(40%);
-  position: absolute;
-  left: 100px;
-  top: 0;
-  font-size: 10rem;
-}
-
-.game-over li:nth-child(14) {
-  --animate-duration: 5s;
-  color: red;
-  -webkit-filter: contrast(40%);
-          filter: contrast(40%);
-  position: absolute;
-  left: 200px;
-  top: 0;
-  font-size: 10rem;
-}
-
-.game-over li:nth-child(15) {
-  --animate-duration: 5s;
-  color: black;
-  -webkit-filter: contrast(40%);
-          filter: contrast(40%);
-  position: absolute;
-  left: 300px;
-  top: 0;
-  font-size: 10rem;
-}
-
-.game-over li:nth-child(16) {
-  --animate-duration: 5s;
-  color: red;
-  -webkit-filter: contrast(40%);
-          filter: contrast(40%);
-  position: absolute;
-  left: 400px;
-  top: 0;
-  font-size: 10rem;
-}
-
-.game-over li:nth-child(17) {
-  --animate-duration: 5s;
-  color: blue;
-  -webkit-filter: contrast(40%);
-          filter: contrast(40%);
-  position: absolute;
-  left: 500px;
-  top: 0;
-  font-size: 10rem;
-}
-
-.game-over li:nth-child(18) {
-  --animate-duration: 5s;
-  color: darkmagenta;
-  -webkit-filter: contrast(40%);
-          filter: contrast(40%);
-  position: absolute;
-  left: 600px;
-  top: 0;
-  font-size: 10rem;
-}
-
-.game-over li:nth-child(19) {
-  --animate-duration: 5s;
-  color: black;
-  -webkit-filter: contrast(40%);
-          filter: contrast(40%);
-  position: absolute;
-  left: 700px;
-  top: 0;
-  font-size: 10rem;
-}
-
-.game-over li:nth-child(20) {
-  --animate-duration: 5s;
-  color: darkmagenta;
-  -webkit-filter: contrast(40%);
-          filter: contrast(40%);
-  position: absolute;
-  left: 800px;
-  top: 0;
-  font-size: 10rem;
-}
-
-.game-over li:nth-child(21) {
-  --animate-duration: 5s;
-  color: blue;
-  -webkit-filter: contrast(40%);
-          filter: contrast(40%);
-  position: absolute;
-  left: 900px;
-  top: 0;
-  font-size: 10rem;
-}
-
-.game-over li:nth-child(22) {
+.results li:nth-child(22) {
   --animate-duration: 5s;
   color: red;
   -webkit-filter: contrast(40%);

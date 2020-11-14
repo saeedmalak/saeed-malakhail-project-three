@@ -6,6 +6,9 @@
   <title>Can You Guess The Word?</title>
   <!-- Font Awesome Kit Code -->
   <script src="https://kit.fontawesome.com/b5138e5c42.js" crossorigin="anonymous"></script>
+  <!-- Google Fonts Link  -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen&family=Rufina:wght@400;700&display=swap" rel="stylesheet">
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="./styles/style.css">
   <!-- CSS Animate Stylesheet  -->
@@ -13,48 +16,44 @@
   </head>
   
   <body>
+    <!-- Game's Instructions Page  -->
     <header class="wrapper">
       <h1>Can You Guess The Word?</h1>
       <p>Instructions</p>
-      <p>You have 60 seconds to guess the image correctly! You have unlimited guesses as long as time remains. The word
-        will contain no numbers or special characters, just plain A-Z alphabets. Good Luck!</p>
+      <p>An image will be shown to you. Your job is to correctly guess the word representing the image. Ohh, and you ONLY have 60 seconds! Good Luck!</p>
       <button class="start">START</button>
     </header>
 
     <main>
+      <!-- Main Play Game Area -->
       <section class="play wrapper">
         <h2>Can You Guess The Word?</h2>
-
         <div class="flex-container">
           <div class="img-container">
             <!-- The image, timer and number of "_" spaces will be dynamically updated here (based on random index array)  -->
-            <p class="flex-timer" id="timer"></p>
+            <p class="flex-timer timer-alert" id="timer"></p>
             <img class="flex-item1" id="image" src="./assets/image0.jpg" alt="a random picture that the user has to guess!">
-            <p class="flex-spaces" id="spaces">_ _ _ _ _</p>
+            <!-- <p class="flex-spaces" id="spaces">_ _ _ _ _</p> -->
           </div>
+          <p class="flex-spaces" id="spaces">_ _ _ _ _</p>
         </div>
 
         <form class="guess-container">
           <label for="guess" class="sr-only">Enter Your Guess Here</label>
-          <input id="guess" type="text" name="guess" required placeholder="Guess Here">
+          <input id="guess" type="text" name="guess" required placeholder="Guess Here (lowercase a-z)">
         </form>
       </section>
 
-      <section class="winner wrapper">
-        <h2 id="winner-message">You Won! Congrats!</h2>
-        <button class="animate__animated animate__heartBeat" id="restart">Restart</button>
-        <!-- A list of 'happy' icons will be dynamically populated here inside 'ul' upon winning the game! -->
-        <ul class="winning-icons">
-        </ul>
+      <!-- Dynamically populate the correct heading messages, button labels and winning/losing icons below  -->
+      <section class="results wrapper">
+        <h2 class="message"></h2>
+        <div class="results-btn-container">
+          <button class="results-btn"></button> 
+          <button class="home-page-btn">HOME</button>
+        </div>
+        <ul class="results-icons"></ul>
       </section>
 
-      <section class="game-over wrapper">
-        <h2>AUUUGGHH Better Luck Next Time!</h2>
-        <button id="play-again">Play Again?</button>
-        <!-- A list of 'sad' icons will be dynamically populated here inside 'ul' upon losing the game :( -->
-        <ul class="game-over-icons">
-        </ul>
-      </section>
     </main>
 
     <script src='https://code.jquery.com/jquery-3.4.0.min.js'
