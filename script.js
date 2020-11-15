@@ -19,7 +19,25 @@ let myAnswer = answerArray[randomAnswerIndex];
 
 // Global variables, the timerID and the number of seconds the user has to successfully guess the word!
 let timerVar;
-let seconds = 12;
+let seconds = 11;
+
+// screen breakpoint sizes
+const breakpointSizes = [
+  window.matchMedia("(max-width: 1241px)"),
+  window.matchMedia("(max-width: 1040px)"),
+  window.matchMedia("(max-width: 800px)"),
+  window.matchMedia("(max-width: 500px)"),
+  window.matchMedia("(max-width: 300px)"),
+];
+
+// Save the font awesome icon names to global variables to be re-used later in a for loop
+let numberOfIcons = 22;
+const winningIcon = "far";
+const winningIconName = "fa-smile";
+const winningIconNameTwo = "fa-smile-beam";
+const losingIcon = "fas";
+const losingIconName = "fa-sad-tear";
+const losingIconNameTwo = "fa-fire";
 
 //Start GuessApp
 guessApp.init = function () {
@@ -40,7 +58,8 @@ guessApp.init = function () {
   $image = $("#image");
   $("#guess").val("");
 
-  $(".flex-timer").removeClass("timer-alert");
+  $timesRunningOut = $(".flex-timer");
+  $timesRunningOut.removeClass("timer-alert");
 
   $resultsPage.hide();
   $playPage.hide();
@@ -71,21 +90,25 @@ guessApp.countTimer = function () {
   seconds--;
 
   if (seconds < 10) {
-    $(".flex-timer").addClass("timer-alert"); // animate the timer to get the user's attention when timer is less than 10 seconds!
+    $timesRunningOut.addClass("timer-alert"); // animate the timer to get the user's attention when timer is less than 10 seconds!
+    $("label.sr-only").text("Times Running Out, Less Than 10 Sec, Hurry!!"); 
     seconds = "0" + seconds;
   }
   if (seconds <= 0) {
     clearInterval(timerVar);
-    guessApp.displayLosingIcons();
+    guessApp.displayIcons(numberOfIcons, losingIcon, losingIconName, losingIconNameTwo);
     seconds = 15;
     $timer.html("00");
-    $(".flex-timer").removeClass("timer-alert");
+    $timesRunningOut.removeClass("timer-alert");
+    $("label.sr-only").text("Enter Your Guess Here");
     $playPage.hide();
     $resultsPage.show();
-    $message.addClass("animate__animated animate__backInDown animate__slow");
+    $message.addClass("animate__animated animate__backInDown animate__slow game-over");
     $message.html("GAME OVER!");
     $resultsBtn.html("Play Again");
     $resultsPage.show();
+
+    guessApp.reduceNumOfIcons();
   }
   $timer.html(`${seconds} Sec...`);
 
@@ -104,15 +127,17 @@ guessApp.findMatch = function () {
 
     if ($userInput === myAnswer) {
       clearInterval(timerVar);
-      guessApp.displayWinningIcons();
+      guessApp.displayIcons(numberOfIcons, winningIcon, winningIconName, winningIconNameTwo);
       seconds = 15;
       $timer.html("00");
       $(".flex-timer").removeClass("timer-alert");
       $playPage.hide();
-      $message.addClass("animate__animated animate__backInDown animate__slow");
+      $message.addClass("animate__animated animate__backInDown animate__slow winner");
       $message.html("You Won! Congrats!");
       $resultsBtn.html("Restart");
       $resultsPage.show();
+
+      guessApp.reduceNumOfIcons();
     }
 
     $("#guess").val(""); // empty the user input field after a wrong answer
@@ -121,46 +146,44 @@ guessApp.findMatch = function () {
 
 }
 
-// Create winning icons animating on the screen when user wins the game!
-guessApp.displayWinningIcons = function () {
-  // Display the '22' happy icons animating on the screen when user wins the game :)
-  for (i = 1; i <= 22; i++) {
 
-    if (i >= 1 && i <= 11) {
-      if (i == 4 || i == 8) {
-        $resultsIcons.append(`<li><i class="far fa-smile-beam animate__animated animate__backOutUp animate__infinite"></i></li>`);
-      }
-      else
-        $resultsIcons.append(`<li><i class="far fa-smile animate__animated animate__backOutUp animate__infinite"></i></li>`);
-    }
-    else if (i >= 12 && i <= 22) {
-      if (i == 15 || i == 19) {
-        $resultsIcons.append(`<li><i class="far fa-smile-beam animate__animated animate__backOutDown animate__infinite"></i></li>`);
-      }
-      else
-        $resultsIcons.append(`<li><i class="far fa-smile animate__animated animate__backOutDown animate__infinite"></i></li>`);
-    }
-  }
-}
 
-// Create sad icons animating on the screen when the game is over!
-guessApp.displayLosingIcons = function () {
-  // Display the '22' sad icons animating on the screen when the game is lost :)
-  for (i = 1; i <= 22; i++) {
-
-    if (i >= 1 && i <= 11) {
-      if (i == 4 || i == 8) {
-        $resultsIcons.append(`<li><i class="fas fa-fire animate__animated animate__backOutUp animate__infinite"></i></li>`);
+// Create icons animating on the screen depending on whether user wins or loses the game!
+guessApp.displayIcons = function (numberOfIcons, icon, iconName, iconNameTwo) {
+  for (i = 1; i <= numberOfIcons; i++) {
+    // desktop icons width greater than 1240px
+    if (numberOfIcons > 16) {
+      if (i >= 1 && i <= 11) {
+        if (i == 4 || i == 8) {
+          $resultsIcons.append(`<li><i class="${icon} ${iconNameTwo} animate__animated animate__backOutUp animate__infinite"></i></li>`);
+        }
+        else
+          $resultsIcons.append(`<li><i class="${icon} ${iconName} animate__animated animate__backOutUp animate__infinite"></i></li>`);
       }
-      else
-        $resultsIcons.append(`<li><i class="fas fa-sad-tear animate__animated animate__backOutUp animate__infinite"></i></li>`);
-    }
-    else if (i >= 12 && i <= 22) {
-      if (i == 15 || i == 19) {
-        $resultsIcons.append(`<li><i class="fas fa-fire animate__animated animate__backOutDown animate__infinite"></i></li>`);
+      else if (i >= 12 && i <= numberOfIcons) {
+        if (i == 15 || i == 19) {
+          $resultsIcons.append(`<li><i class="${icon} ${iconNameTwo} animate__animated animate__backOutDown animate__infinite"></i></li>`);
+        }
+        else
+          $resultsIcons.append(`<li><i class="${icon} ${iconName} animate__animated animate__backOutDown animate__infinite"></i></li>`);
       }
-      else
-        $resultsIcons.append(`<li><i class="fas fa-sad-tear animate__animated animate__backOutDown animate__infinite"></i></li>`);
+    }   
+    // Screen sizes up to 940px (Reduce the number of icons accordingly)
+    else if (numberOfIcons <= 16) {
+      if (i >= 1 && i <= 8) {
+        if (i == 3 || i == 6) {
+          $resultsIcons.append(`<li><i class="${icon} ${iconNameTwo} animate__animated animate__backOutUp animate__infinite"></i></li>`);
+        }
+        else
+          $resultsIcons.append(`<li><i class="${icon} ${iconName} animate__animated animate__backOutUp animate__infinite"></i></li>`);
+      }
+      else if (i >= 9 && i <= numberOfIcons) {
+        if (i == 11 || i == 14) {
+          $resultsIcons.append(`<li><i class="${icon} ${iconNameTwo} animate__animated animate__backOutDown animate__infinite"></i></li>`);
+        }
+        else
+          $resultsIcons.append(`<li><i class="${icon} ${iconName} animate__animated animate__backOutDown animate__infinite"></i></li>`);
+      }
     }
   }
 }
@@ -173,7 +196,7 @@ const resetGameSettings = function () {
   guessApp.displayInfo(randomAnswerIndex, myAnswer);
 
   // remove animated classes from H2 to prevent JS being loaded onto the screen (looks weird so thanks to removeClass & addClass!)
-  $message.removeClass("animate__animated animate__backInDown animate__slow");
+  $message.removeClass("animate__animated animate__backInDown animate__slow winner game-over");
   $resultsPage.hide();
 }
 
@@ -209,3 +232,72 @@ $ (function() {
   guessApp.init();
 
 });
+
+// Conditional media queries using Jquery 
+// if (window.matchMedia('(max-width: 1240px)').matches) {
+//   numberOfIcons = 16;
+//   console.log("Screen is 1240px and less");
+// }
+
+// Save the screen breakpoint sizes to an array when it comes to the "Results Page" and reducing the number of icons dynamically
+
+guessApp.reduceNumOfIcons = function () {
+
+  for (let i = 0; i < breakpointSizes.length; i++) {
+    guessApp.mediaQueryResponse(breakpointSizes[i]);
+    breakpointSizes[i].addEventListener("change", guessApp.mediaQueryResponse);
+  }
+
+}
+
+
+// // Reduce the number of winning & losing icons as the screen gets smaller dynamically!
+// guessApp.reduceNumOfIcons = function (screenBreakpointSizes) {
+//   let x = window.matchMedia(largeDesktopSize);
+//   guessApp.myFunction(x);
+//   // Attach listener function on state changes
+//   x.addEventListener("change", guessApp.myFunction);
+// }
+
+
+guessApp.mediaQueryResponse = function (x) {
+
+  $('.results-icons').empty();
+  if (breakpointSizes[0].matches)  {// If media query matches
+    // document.body.style.backgroundColor = "yellow";
+    numberOfIcons = 16;
+    if ($message.hasClass("winner"))
+      guessApp.displayIcons(numberOfIcons, winningIcon, winningIconName, winningIconNameTwo);
+    else if($message.hasClass("game-over"))
+      guessApp.displayIcons(numberOfIcons, losingIcon, losingIconName, losingIconNameTwo);
+  }
+  else {
+    numberOfIcons = 22;
+    if ($message.hasClass("game-over"))
+      guessApp.displayIcons(numberOfIcons, losingIcon, losingIconName, losingIconNameTwo);
+    else if ($message.hasClass("winner"))
+      guessApp.displayIcons(numberOfIcons, winningIcon, winningIconName, winningIconNameTwo);
+    // document.body.style.backgroundColor = "pink";
+  }
+}
+
+// guessApp.myFunction = function (x) {
+//   $('.results-icons').empty();
+//   if (x.matches) {// If media query matches
+//     // document.body.style.backgroundColor = "yellow";
+//     numberOfIcons = 16;
+//     if ($message.hasClass("winner"))
+//       guessApp.displayIcons(numberOfIcons, winningIcon, winningIconName, winningIconNameTwo);
+//     else if ($message.hasClass("game-over"))
+//       guessApp.displayIcons(numberOfIcons, losingIcon, losingIconName, losingIconNameTwo);
+//   }
+//   else {
+//     numberOfIcons = 22;
+//     if ($message.hasClass("game-over"))
+//       guessApp.displayIcons(numberOfIcons, losingIcon, losingIconName, losingIconNameTwo);
+//     else if ($message.hasClass("winner"))
+//       guessApp.displayIcons(numberOfIcons, winningIcon, winningIconName, winningIconNameTwo);
+//     // document.body.style.backgroundColor = "pink";
+//   }
+// }
+    

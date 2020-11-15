@@ -35,28 +35,28 @@
     @include icons-moving-up(red, 200px);
   }
   li:nth-child(4){
-    @include icons-moving-up(red, 400px);
-  }
-  li:nth-child(5) {
-    @include icons-moving-up(blue, 500px);
-  }
-  li:nth-child(6) {
-    @include icons-moving-up(darkmagenta, 600px);
-  }
-  li:nth-child(7) {
-    @include icons-moving-up(darkmagenta, 800px);
-  }
-  li:nth-child(8) {
-    @include icons-moving-up(blue, 900px);
-  }
-  li:nth-child(9) {
-    @include icons-moving-up(red, 1000px);
-  }
-  li:nth-child(10) {
     @include icons-moving-up(red, 300px);
   }
+  li:nth-child(5) {
+    @include icons-moving-up(blue, 400px);
+  }
+  li:nth-child(6) {
+    @include icons-moving-up(darkmagenta, 500px);
+  }
+  li:nth-child(7) {
+    @include icons-moving-up(darkmagenta, 600px);
+  }
+  li:nth-child(8) {
+    @include icons-moving-up(blue, 700px);
+  }
+  li:nth-child(9) {
+    @include icons-moving-up(red, 800px);
+  }
+  li:nth-child(10) {
+    @include icons-moving-up(red, 900px);
+  }
   li:nth-child(11) {
-    @include icons-moving-up(red, 700px);
+    @include icons-moving-up(red, 1000px);
   }
 
   // Animate icons moving from top of screen to bottom

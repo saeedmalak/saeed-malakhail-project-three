@@ -492,7 +492,7 @@ main .play .guess-container input {
   -webkit-filter: contrast(40%);
           filter: contrast(40%);
   position: absolute;
-  left: 400px;
+  left: 300px;
   bottom: 0;
   font-size: 10rem;
 }
@@ -503,7 +503,7 @@ main .play .guess-container input {
   -webkit-filter: contrast(40%);
           filter: contrast(40%);
   position: absolute;
-  left: 500px;
+  left: 400px;
   bottom: 0;
   font-size: 10rem;
 }
@@ -514,7 +514,7 @@ main .play .guess-container input {
   -webkit-filter: contrast(40%);
           filter: contrast(40%);
   position: absolute;
-  left: 600px;
+  left: 500px;
   bottom: 0;
   font-size: 10rem;
 }
@@ -525,7 +525,7 @@ main .play .guess-container input {
   -webkit-filter: contrast(40%);
           filter: contrast(40%);
   position: absolute;
-  left: 800px;
+  left: 600px;
   bottom: 0;
   font-size: 10rem;
 }
@@ -536,7 +536,7 @@ main .play .guess-container input {
   -webkit-filter: contrast(40%);
           filter: contrast(40%);
   position: absolute;
-  left: 900px;
+  left: 700px;
   bottom: 0;
   font-size: 10rem;
 }
@@ -547,7 +547,7 @@ main .play .guess-container input {
   -webkit-filter: contrast(40%);
           filter: contrast(40%);
   position: absolute;
-  left: 1000px;
+  left: 800px;
   bottom: 0;
   font-size: 10rem;
 }
@@ -558,7 +558,7 @@ main .play .guess-container input {
   -webkit-filter: contrast(40%);
           filter: contrast(40%);
   position: absolute;
-  left: 300px;
+  left: 900px;
   bottom: 0;
   font-size: 10rem;
 }
@@ -569,7 +569,7 @@ main .play .guess-container input {
   -webkit-filter: contrast(40%);
           filter: contrast(40%);
   position: absolute;
-  left: 700px;
+  left: 1000px;
   bottom: 0;
   font-size: 10rem;
 }
@@ -693,4 +693,58 @@ main .play .guess-container input {
   left: 1000px;
   top: 0;
   font-size: 10rem;
+}
+
+@media (max-width: 1241px) {
+  .results-icons li:nth-child(1) {
+    left: 100px;
+  }
+  .results-icons li:nth-child(2) {
+    left: 200px;
+  }
+  .results-icons li:nth-child(3) {
+    left: 300px;
+  }
+  .results-icons li:nth-child(4) {
+    left: 400px;
+  }
+  .results-icons li:nth-child(5) {
+    left: 500px;
+  }
+  .results-icons li:nth-child(6) {
+    left: 600px;
+  }
+  .results-icons li:nth-child(7) {
+    left: 700px;
+  }
+  .results-icons li:nth-child(8) {
+    left: 800px;
+  }
+  .results-icons li:nth-child(9), .results-icons li:nth-child(10), .results-icons li:nth-child(11), .results-icons li:nth-child(12), .results-icons li:nth-child(13), .results-icons li:nth-child(14), .results-icons li:nth-child(15), .results-icons li:nth-child(16) {
+    top: 0;
+  }
+  .results-icons li:nth-child(9) {
+    left: 100px;
+  }
+  .results-icons li:nth-child(10) {
+    left: 200px;
+  }
+  .results-icons li:nth-child(11) {
+    left: 300px;
+  }
+  .results-icons li:nth-child(12) {
+    left: 400px;
+  }
+  .results-icons li:nth-child(13) {
+    left: 500px;
+  }
+  .results-icons li:nth-child(14) {
+    left: 600px;
+  }
+  .results-icons li:nth-child(15) {
+    left: 700px;
+  }
+  .results-icons li:nth-child(16) {
+    left: 800px;
+  }
 }
