@@ -1,0 +1,9 @@
+footer {
+  display: flex;
+  justify-content: flex-end;
+
+  span {font-weight: bolder;}
+  a {color: $primary};
+  p {font-size: 1.8rem;}
+  
+}

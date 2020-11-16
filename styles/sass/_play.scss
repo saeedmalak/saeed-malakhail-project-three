@@ -5,6 +5,14 @@ main .play {
     margin-top: 40px;
   }
 
+  .streak {
+    margin-top: 10px;
+  }
+
+  .streak span {
+    background: linear-gradient(to right, #c21500, #ffc500);
+  }
+
   .flex-container {
     display: flex;
     flex-direction: column;

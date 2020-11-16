@@ -51,6 +51,8 @@
 
 // small tablets/landscape mobiles 
 @media (max-width: 800px) {
+  .results h2 {font-size: 4rem;}
+
   .results-icons {
     li:nth-child(1) {left: 100px;} 
     li:nth-child(2) {left: 200px;} 
@@ -70,7 +72,7 @@
 
 // small tablets/landscape mobiles 
 @media (max-width: 650px) {
-  .results h2 {font-size: 4rem;}
+  .results h2 {font-size: 3.3rem;}
 
   .results-btn-container button {
     width: 170px;
@@ -92,7 +94,8 @@
 
 // landscape mobiles 
 @media (max-width: 500px) {
-  .results h2 {font-size: 3rem;}
+  .results h2 {font-size: 2.5rem;}
+  .results h3 {font-size: 3.5rem;}
 
   .results-btn-container button {
     width: 140px;
@@ -114,6 +117,9 @@
 
 // smartphones 
 @media (max-width: 400px) {
+  .results h2 {font-size: 2rem;}
+  .results h3 {font-size: 3rem;}
+
   .results-btn-container button {
     width: 120px;
     font-size: 1.5rem;
@@ -134,7 +140,8 @@
 
 // narrow smartphones 
 @media (max-width: 350px) {
-  .results h2 {font-size: 2.5rem;}
+  .results h2 {font-size: 1.5rem;}
+  .results h3 {font-size: 2.5rem;}
 
   .results-btn-container button {
     width: 105px;
@@ -156,7 +163,7 @@
 
 // old smartphones 
 @media (max-width: 300px) {
-  .results h2 {font-size: 2rem;}
+  .results h3 {font-size: 2rem;}
 
   .results-btn-container button {
     width: 86px;

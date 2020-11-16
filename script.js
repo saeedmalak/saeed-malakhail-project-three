@@ -4,9 +4,8 @@ const guessApp = {};
 
 // Create an object (with arrays inside) which consists of the correct answer words that the user has to guess!
 guessApp.answers = {
-  word: ["kite", "coding", "basketball", "tide", "heat", "wheat", "darkness", "olympics", "snowflakes", "fireworks"]
+  word: ["kite", "coding", "basketball", "tide", "heat", "wheat", "darkness", "olympics", "snowflakes", "fireworks", "studying", "round", "sandpaper", "moth", "realm", "temper", "creator", "nutmeg", "soul", "trawler", "population", "telepathy", "retire", "enemy", "regret", "writhe", "blacksmith", "stuff", "opaque", "rhythm", "improve", "atlantis", "insurance", "language", "password", "tribe", "bribery", "vip", "depth", "carat", "reaction", "hobby", "cramp", "discovery", "friction", "property", "feeling", "panic", "tutor", "galaxy", "comparison", "wish"]
 }
-
 // Randomly return the array index number to re-use later 
 const randomizer = function (array) {
   return Math.floor(Math.random() * array.length);
@@ -19,6 +18,7 @@ let myAnswer = answerArray[randomAnswerIndex];
 
 // Global variables, the timerID and the number of seconds the user has to successfully guess the word!
 let timerVar;
+let streak = 0;
 let seconds = 60;
 
 // screen breakpoint sizes
@@ -32,11 +32,11 @@ const breakpointSizes = [
 // Save the font awesome icon names to global variables to be re-used later in a for loop
 let numberOfIcons = 22;
 const winningIcon = "far";
-const winningIconName = "fa-smile";
-const winningIconNameTwo = "fa-smile-beam";
+const winningIconName = "fa-smile-beam";
+// const winningIconNameTwo = "fa-smile-beam";
 const losingIcon = "fas";
 const losingIconName = "fa-sad-tear";
-const losingIconNameTwo = "fa-fire";
+// const losingIconNameTwo = "fa-fire";
 
 //Start GuessApp
 guessApp.init = function () {
@@ -92,9 +92,10 @@ guessApp.countTimer = function () {
     $("label.sr-only").text("Times Running Out, Less Than 10 Sec, Hurry!!"); 
     seconds = "0" + seconds;
   }
+  // User loses the game, then reset settings and display the icons + messages 
   if (seconds <= 0) {
     clearInterval(timerVar);
-    guessApp.displayIcons(numberOfIcons, losingIcon, losingIconName, losingIconNameTwo);
+    guessApp.displayIcons(numberOfIcons)
     seconds = 60;
     $timer.html("00");
     $timesRunningOut.removeClass("timer-alert");
@@ -102,9 +103,8 @@ guessApp.countTimer = function () {
     $playPage.hide();
     $resultsPage.show();
     $message.addClass("animate__animated animate__backInDown animate__slow game-over");
-    $message.html("GAME OVER!");
+    $message.html("TIMES UP, GREAT WORK!");
     $resultsBtn.html("Play Again");
-    $resultsPage.show();
 
     // check to dynamically reduce the # of icons based on screen size (desktop, tablet or mobile devices)
     guessApp.reduceNumOfIcons();
@@ -126,15 +126,13 @@ guessApp.findMatch = function () {
 
     if ($userInput === myAnswer) {
       clearInterval(timerVar);
-      guessApp.displayIcons(numberOfIcons, winningIcon, winningIconName, winningIconNameTwo);
+      streak++;
+      $(".streak").html(`Your <span>STREAK</span> is: ${streak}!`);
+      resetGameSettings();
       seconds = 60;
+      timerVar = setInterval(guessApp.countTimer, 1000);
       $timer.html("00");
       $(".flex-timer").removeClass("timer-alert");
-      $playPage.hide();
-      $message.addClass("animate__animated animate__backInDown animate__slow winner");
-      $message.html("You Won! Congrats!");
-      $resultsBtn.html("Restart");
-      $resultsPage.show();
 
       // check to dynamically reduce the # of icons based on screen size (desktop, tablet or mobile devices)
       guessApp.reduceNumOfIcons();
@@ -143,98 +141,6 @@ guessApp.findMatch = function () {
     $("#guess").val(""); // empty the user input field after a wrong answer
 
   })
-
-}
-
-// Create icons animating on the screen depending on whether user wins or loses the game!
-guessApp.displayIcons = function (numberOfIcons, icon, iconName, iconNameTwo) {
-  for (i = 1; i <= numberOfIcons; i++) {
-    // desktop icons width greater than 1241px
-    if (numberOfIcons === 22) {
-      if (i >= 1 && i <= 11) {
-        if (i == 4 || i == 8) {
-          $resultsIcons.append(`<li><i class="${icon} ${iconNameTwo} animate__animated animate__backOutUp animate__infinite"></i></li>`);
-        }
-        else
-          $resultsIcons.append(`<li><i class="${icon} ${iconName} animate__animated animate__backOutUp animate__infinite"></i></li>`);
-      }
-      else if (i >= 12 && i <= numberOfIcons) {
-        if (i == 15 || i == 19) {
-          $resultsIcons.append(`<li><i class="${icon} ${iconNameTwo} animate__animated animate__backOutDown animate__infinite"></i></li>`);
-        }
-        else
-          $resultsIcons.append(`<li><i class="${icon} ${iconName} animate__animated animate__backOutDown animate__infinite"></i></li>`);
-      }
-    }   
-    // large desktops max-width of 1241px
-    else if (numberOfIcons === 16) {
-      if (i >= 1 && i <= 8) {
-        if (i == 3 || i == 6) {
-          $resultsIcons.append(`<li><i class="${icon} ${iconNameTwo} animate__animated animate__backOutUp animate__infinite"></i></li>`);
-        }
-        else
-          $resultsIcons.append(`<li><i class="${icon} ${iconName} animate__animated animate__backOutUp animate__infinite"></i></li>`);
-      }
-      else if (i >= 9 && i <= numberOfIcons) {
-        if (i == 11 || i == 14) {
-          $resultsIcons.append(`<li><i class="${icon} ${iconNameTwo} animate__animated animate__backOutDown animate__infinite"></i></li>`);
-        }
-        else
-          $resultsIcons.append(`<li><i class="${icon} ${iconName} animate__animated animate__backOutDown animate__infinite"></i></li>`);
-      }
-    }
-    // small desktops/tablets max-width of 1040px
-    else if (numberOfIcons === 12) {
-      if (i >= 1 && i <= 6) {
-        if (i == 2 || i == 5) {
-          $resultsIcons.append(`<li><i class="${icon} ${iconNameTwo} animate__animated animate__backOutUp animate__infinite"></i></li>`);
-        }
-        else
-          $resultsIcons.append(`<li><i class="${icon} ${iconName} animate__animated animate__backOutUp animate__infinite"></i></li>`);
-      }
-      else if (i >= 7 && i <= numberOfIcons) {
-        if (i == 8 || i == 11) {
-          $resultsIcons.append(`<li><i class="${icon} ${iconNameTwo} animate__animated animate__backOutDown animate__infinite"></i></li>`);
-        }
-        else
-          $resultsIcons.append(`<li><i class="${icon} ${iconName} animate__animated animate__backOutDown animate__infinite"></i></li>`);
-      }
-    }
-    // small tablets/landscape mobiles max-width of 800px
-    else if (numberOfIcons === 8) {
-      if (i >= 1 && i <= 4) {
-        if (i == 2 || i == 3) {
-          $resultsIcons.append(`<li><i class="${icon} ${iconNameTwo} animate__animated animate__backOutUp animate__infinite"></i></li>`);
-        }
-        else
-          $resultsIcons.append(`<li><i class="${icon} ${iconName} animate__animated animate__backOutUp animate__infinite"></i></li>`);
-      }
-      else if (i >= 5 && i <= numberOfIcons) {
-        if (i == 6 || i == 7) {
-          $resultsIcons.append(`<li><i class="${icon} ${iconNameTwo} animate__animated animate__backOutDown animate__infinite"></i></li>`);
-        }
-        else
-          $resultsIcons.append(`<li><i class="${icon} ${iconName} animate__animated animate__backOutDown animate__infinite"></i></li>`);
-      }
-    }
-    // small tablets/landscape mobiles max-width of 650px
-    else if (numberOfIcons === 4) {
-      if (i >= 1 && i <= 2) {
-        if (i == 2) {
-          $resultsIcons.append(`<li><i class="${icon} ${iconNameTwo} animate__animated animate__backOutUp animate__infinite"></i></li>`);
-        }
-        else
-          $resultsIcons.append(`<li><i class="${icon} ${iconName} animate__animated animate__backOutUp animate__infinite"></i></li>`);
-      }
-      else if (i >= 3 && i <= numberOfIcons) {
-        if (i === numberOfIcons) {
-          $resultsIcons.append(`<li><i class="${icon} ${iconNameTwo} animate__animated animate__backOutDown animate__infinite"></i></li>`);
-        }
-        else
-          $resultsIcons.append(`<li><i class="${icon} ${iconName} animate__animated animate__backOutDown animate__infinite"></i></li>`);
-      }
-    }
-  }
 }
 
 // Reset all game settings 
@@ -245,17 +151,20 @@ const resetGameSettings = function () {
   guessApp.displayInfo(randomAnswerIndex, myAnswer);
 
   // remove animated classes from H2 to prevent JS being loaded onto the screen (looks weird so thanks to removeClass & addClass!)
-  $message.removeClass("animate__animated animate__backInDown animate__slow winner game-over");
+  // $message.removeClass("animate__animated animate__backInDown animate__slow winner game-over");
+  $message.removeClass("animate__animated animate__backInDown animate__slow game-over");
   $resultsPage.hide();
 }
 
-// Display the relevant 'sections' depending on which button is clicked: Start Game or Results Button (Game Won or Game Lost)
+// Display the relevant 'sections' depending on which buttons are clicked: PLAY AGAIN or START
 guessApp.buttonEventListeners = function () {
-  // Show the play area page when user hits "RESTART"
+  // Show the play area page when user hits "PLAY AGAIN"
   $resultsBtn.on("click", function () {
     resetGameSettings();
     // start the timer and show the Play Area
     timerVar = setInterval(guessApp.countTimer, 1000);
+    streak = 0;
+    $('.streak').empty();
     $playPage.show();
     // place the cursor inside the inputbox when page loads to give user good experience!
     $('#guess').focus();
@@ -264,6 +173,8 @@ guessApp.buttonEventListeners = function () {
   // Show the home instructions page when user hits "HOME" button
   $homePageBtn.on("click", function () {
     resetGameSettings();
+    streak = 0;
+    $('.streak').empty();
     $instructionsPage.show();
   })
 
@@ -276,65 +187,135 @@ guessApp.buttonEventListeners = function () {
   });
 }
 
-// Document Ready function
-$ (function() {
-
-  guessApp.init();
-
-});
+// Create alternating happy & sad icons animating on the screen when the game is over for all device screen sizes!
+guessApp.displayIcons = function (numberOfIcons) {
+  for (i = 1; i <= numberOfIcons; i++) {
+    // desktop icons width greater than 1241px
+    if (numberOfIcons === 22) {
+      if (i >= 1 && i <= 11) {
+        if (i % 2 !== 0)
+          $resultsIcons.append(`<li><i class="${winningIcon} ${winningIconName} animate__animated animate__backOutUp animate__infinite"></i></li>`);
+        else 
+          $resultsIcons.append(`<li><i class="${losingIcon} ${losingIconName} animate__animated animate__backOutUp animate__infinite"></i></li>`);
+      }
+      else if (i >=12 && i<= numberOfIcons) {
+        if (i % 2 !== 0)
+          $resultsIcons.append(`<li><i class="${winningIcon} ${winningIconName} animate__animated animate__backOutDown animate__infinite"></i></li>`);
+        else
+          $resultsIcons.append(`<li><i class="${losingIcon} ${losingIconName} animate__animated animate__backOutDown animate__infinite"></i></li>`);
+      }
+    }
+    // large desktops max-width of 1241px
+    else if (numberOfIcons === 16) {
+      if (i >= 1 && i <= 8) {
+        if (i % 2 !== 0)
+          $resultsIcons.append(`<li><i class="${winningIcon} ${winningIconName} animate__animated animate__backOutUp animate__infinite"></i></li>`);
+        else
+          $resultsIcons.append(`<li><i class="${losingIcon} ${losingIconName} animate__animated animate__backOutUp animate__infinite"></i></li>`);
+      }
+      else if (i >= 9 && i <= numberOfIcons) {
+        if (i % 2 !== 0)
+          $resultsIcons.append(`<li><i class="${winningIcon} ${winningIconName} animate__animated animate__backOutDown animate__infinite"></i></li>`);
+        else
+          $resultsIcons.append(`<li><i class="${losingIcon} ${losingIconName} animate__animated animate__backOutDown animate__infinite"></i></li>`);
+      }
+    }
+    // small desktops/tablets max-width of 1040px
+    else if (numberOfIcons === 12) {
+      if (i >= 1 && i <= 6) {
+        if (i % 2 !== 0)
+          $resultsIcons.append(`<li><i class="${winningIcon} ${winningIconName} animate__animated animate__backOutUp animate__infinite"></i></li>`);
+        else
+          $resultsIcons.append(`<li><i class="${losingIcon} ${losingIconName} animate__animated animate__backOutUp animate__infinite"></i></li>`);
+      }
+      else if (i >= 7 && i <= numberOfIcons) {
+        if (i % 2 !== 0)
+          $resultsIcons.append(`<li><i class="${winningIcon} ${winningIconName} animate__animated animate__backOutDown animate__infinite"></i></li>`);
+        else
+          $resultsIcons.append(`<li><i class="${losingIcon} ${losingIconName} animate__animated animate__backOutDown animate__infinite"></i></li>`);
+      }
+    }
+    // small tablets/landscape mobiles max-width of 800px
+    else if (numberOfIcons === 8) {
+      if (i >= 1 && i <= 4) {
+        if (i % 2 !== 0)
+          $resultsIcons.append(`<li><i class="${winningIcon} ${winningIconName} animate__animated animate__backOutUp animate__infinite"></i></li>`);
+        else
+          $resultsIcons.append(`<li><i class="${losingIcon} ${losingIconName} animate__animated animate__backOutUp animate__infinite"></i></li>`);
+      }
+      else if (i >= 5 && i <= numberOfIcons) {
+        if (i % 2 !== 0)
+          $resultsIcons.append(`<li><i class="${winningIcon} ${winningIconName} animate__animated animate__backOutDown animate__infinite"></i></li>`);
+        else
+          $resultsIcons.append(`<li><i class="${losingIcon} ${losingIconName} animate__animated animate__backOutDown animate__infinite"></i></li>`);
+      }
+    }
+    // small tablets/landscape mobiles max-width of 650px
+    else if (numberOfIcons === 4) {
+      if (i >= 1 && i <= 2) {
+        if (i % 2 !== 0)
+          $resultsIcons.append(`<li><i class="${winningIcon} ${winningIconName} animate__animated animate__backOutUp animate__infinite"></i></li>`);
+        else
+          $resultsIcons.append(`<li><i class="${losingIcon} ${losingIconName} animate__animated animate__backOutUp animate__infinite"></i></li>`);
+      }
+      else if (i >= 3 && i <= numberOfIcons) {
+        if (i % 2 !== 0)
+          $resultsIcons.append(`<li><i class="${winningIcon} ${winningIconName} animate__animated animate__backOutDown animate__infinite"></i></li>`);
+        else
+          $resultsIcons.append(`<li><i class="${losingIcon} ${losingIconName} animate__animated animate__backOutDown animate__infinite"></i></li>`);
+      }
+    }
+  }
+}
 
 // Reduce the number of icons as the screen gets smaller dynamically!
 guessApp.reduceNumOfIcons = function () {
-
   for (let i = 0; i < breakpointSizes.length; i++) {
     guessApp.mediaQueryResponse(breakpointSizes[i]);
     breakpointSizes[i].addEventListener("change", guessApp.mediaQueryResponse);
   }
 }
 
-// Conditional media queries using Jquery 
+// Media Query function to show the different state changes
 guessApp.mediaQueryResponse = function (x) {
 
   $('.results-icons').empty();
   // small/narrow/landscape mobile devices from 300px to 650px
   if (breakpointSizes[0].matches && breakpointSizes[1].matches && breakpointSizes[2].matches && breakpointSizes[3].matches)  { 
     numberOfIcons = 4;
-    if ($message.hasClass("winner"))
-      guessApp.displayIcons(numberOfIcons, winningIcon, winningIconName, winningIconNameTwo);
-    else if($message.hasClass("game-over"))
-      guessApp.displayIcons(numberOfIcons, losingIcon, losingIconName, losingIconNameTwo);
+    if ($message.hasClass("game-over")) 
+      guessApp.displayIcons(numberOfIcons);
   }
   // screens upto max-width 800px
   else if (breakpointSizes[0].matches && breakpointSizes[1].matches && breakpointSizes[2].matches) {
     numberOfIcons = 8;
-    if ($message.hasClass("winner"))
-      guessApp.displayIcons(numberOfIcons, winningIcon, winningIconName, winningIconNameTwo);
-    else if ($message.hasClass("game-over"))
-      guessApp.displayIcons(numberOfIcons, losingIcon, losingIconName, losingIconNameTwo);
+    if ($message.hasClass("game-over")) 
+      guessApp.displayIcons(numberOfIcons);
   }
   // screens upto max-width 1040px
   else if (breakpointSizes[0].matches && breakpointSizes[1].matches) {
     numberOfIcons = 12;
-    if ($message.hasClass("winner"))
-      guessApp.displayIcons(numberOfIcons, winningIcon, winningIconName, winningIconNameTwo);
-    else if ($message.hasClass("game-over"))
-      guessApp.displayIcons(numberOfIcons, losingIcon, losingIconName, losingIconNameTwo);
+    if ($message.hasClass("game-over")) 
+      guessApp.displayIcons(numberOfIcons);
   }
   // screens upto max-width 1241px
   else if (breakpointSizes[0].matches) {
     numberOfIcons = 16;
-    if ($message.hasClass("winner"))
-      guessApp.displayIcons(numberOfIcons, winningIcon, winningIconName, winningIconNameTwo);
-    else if ($message.hasClass("game-over"))
-      guessApp.displayIcons(numberOfIcons, losingIcon, losingIconName, losingIconNameTwo);
+    if ($message.hasClass("game-over")) 
+      guessApp.displayIcons(numberOfIcons);
   }
   // screens greater than 1241px
   else {  
     numberOfIcons = 22;
-    if ($message.hasClass("game-over"))
-      guessApp.displayIcons(numberOfIcons, losingIcon, losingIconName, losingIconNameTwo);
-    else if ($message.hasClass("winner"))
-      guessApp.displayIcons(numberOfIcons, winningIcon, winningIconName, winningIconNameTwo);
+    if ($message.hasClass("game-over")) 
+      guessApp.displayIcons(numberOfIcons);
   }
 }
+
+// Document Ready function
+$(function () {
+
+  guessApp.init();
+
+});
     
