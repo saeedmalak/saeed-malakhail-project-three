@@ -33,24 +33,25 @@
             <!-- The image, timer and number of "_" spaces will be dynamically updated here (based on random index array)  -->
             <p class="flex-timer timer-alert" id="timer"></p>
             <img class="flex-item1" id="image" src="./assets/image0.jpg" alt="a random picture that the user has to guess!">
-            <!-- <p class="flex-spaces" id="spaces">_ _ _ _ _</p> -->
           </div>
-          <p class="flex-spaces" id="spaces">_ _ _ _ _</p>
+          <!-- Spaces will also be dynamically populated based on the randomly word chosen  -->
+          <p class="flex-spaces" id="spaces"></p>
         </div>
 
         <form class="guess-container">
-          <label for="guess" class="sr-only">Enter Your Guess Here</label>
+          <label for="guess" class="sr-only">Enter Your Guess Here (lowercase a-z only)</label>
           <input id="guess" type="text" name="guess" required placeholder="Guess Here (lowercase a-z)">
         </form>
       </section>
 
-      <!-- Dynamically populate the correct heading messages, button labels and winning/losing icons below  -->
+      <!-- populate the correct heading messages and button labels below  -->
       <section class="results wrapper">
         <h2 class="message"></h2>
         <div class="results-btn-container">
           <button class="results-btn"></button> 
           <button class="home-page-btn">HOME</button>
         </div>
+        <!-- Dynamically populate the winning/losing icons below (inside ul)  -->
         <ul class="results-icons"></ul>
       </section>
 

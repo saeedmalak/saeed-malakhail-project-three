@@ -695,6 +695,138 @@ main .play .guess-container input {
   font-size: 10rem;
 }
 
+@media (max-width: 900px) {
+  header h1 {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 750px) {
+  header h1 {
+    font-size: 4rem;
+  }
+  header p {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    text-align: center;
+  }
+  header h1 {
+    font-size: 3rem;
+  }
+  header p {
+    font-size: 2rem;
+  }
+  header button {
+    font-size: 2rem;
+    width: 125px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 450px) {
+  header h1 {
+    font-size: 2.5rem;
+  }
+  header p {
+    font-size: 1.5rem;
+  }
+  header button {
+    font-size: 2rem;
+    width: 125px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 400px) {
+  header p {
+    line-height: 2;
+  }
+}
+
+@media (max-width: 300px) {
+  header p {
+    font-size: 1rem;
+  }
+  header p:nth-child(2) {
+    margin: 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  .play #guess {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .play h2 {
+    font-size: 4rem;
+  }
+  .play #guess {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .play h2 {
+    font-size: 2.5rem;
+  }
+  .play #guess {
+    font-size: 1.2rem;
+    height: 30px;
+  }
+  .play #spaces {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .play h2 {
+    font-size: 2rem;
+  }
+  .play #guess {
+    font-size: 1.5rem;
+    width: 66%;
+  }
+  .play #spaces {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .play #guess {
+    font-size: 1.5rem;
+    width: 77%;
+  }
+  .play #spaces {
+    font-size: 2.8rem;
+  }
+  main .play .flex-container .img-container {
+    width: 250px;
+  }
+}
+
+@media (max-width: 300px) {
+  .play #guess {
+    font-size: 1.5rem;
+    width: 89%;
+  }
+  .play #spaces {
+    font-size: 2.2rem;
+    margin-top: 0;
+  }
+  main .play .guess-container {
+    margin-top: 0;
+  }
+  main .play .flex-container .img-container {
+    width: 200px;
+  }
+}
+
 @media (max-width: 1241px) {
   .results-icons li:nth-child(1) {
     left: 100px;
@@ -746,5 +878,201 @@ main .play .guess-container input {
   }
   .results-icons li:nth-child(16) {
     left: 800px;
+  }
+}
+
+@media (max-width: 1040px) {
+  .results-icons li:nth-child(1) {
+    left: 100px;
+  }
+  .results-icons li:nth-child(2) {
+    left: 200px;
+  }
+  .results-icons li:nth-child(3) {
+    left: 300px;
+  }
+  .results-icons li:nth-child(4) {
+    left: 400px;
+  }
+  .results-icons li:nth-child(5) {
+    left: 500px;
+  }
+  .results-icons li:nth-child(6) {
+    left: 600px;
+  }
+  .results-icons li:nth-child(7), .results-icons li:nth-child(8), .results-icons li:nth-child(9), .results-icons li:nth-child(10), .results-icons li:nth-child(11), .results-icons li:nth-child(12) {
+    top: 0;
+  }
+  .results-icons li:nth-child(7) {
+    left: 100px;
+  }
+  .results-icons li:nth-child(8) {
+    left: 200px;
+  }
+  .results-icons li:nth-child(9) {
+    left: 300px;
+  }
+  .results-icons li:nth-child(10) {
+    left: 400px;
+  }
+  .results-icons li:nth-child(11) {
+    left: 500px;
+  }
+  .results-icons li:nth-child(12) {
+    left: 600px;
+  }
+}
+
+@media (max-width: 800px) {
+  .results-icons li:nth-child(1) {
+    left: 100px;
+  }
+  .results-icons li:nth-child(2) {
+    left: 200px;
+  }
+  .results-icons li:nth-child(3) {
+    left: 300px;
+  }
+  .results-icons li:nth-child(4) {
+    left: 400px;
+  }
+  .results-icons li:nth-child(5), .results-icons li:nth-child(6), .results-icons li:nth-child(7), .results-icons li:nth-child(8) {
+    top: 0;
+  }
+  .results-icons li:nth-child(5) {
+    left: 100px;
+  }
+  .results-icons li:nth-child(6) {
+    left: 200px;
+  }
+  .results-icons li:nth-child(7) {
+    left: 300px;
+  }
+  .results-icons li:nth-child(8) {
+    left: 400px;
+  }
+}
+
+@media (max-width: 650px) {
+  .results h2 {
+    font-size: 4rem;
+  }
+  .results-btn-container button {
+    width: 170px;
+    font-size: 2.2rem;
+  }
+  .results-icons li:nth-child(1) {
+    left: 100px;
+  }
+  .results-icons li:nth-child(2) {
+    left: 300px;
+  }
+  .results-icons li:nth-child(3), .results-icons li:nth-child(4) {
+    top: 0;
+  }
+  .results-icons li:nth-child(3) {
+    left: 100px;
+  }
+  .results-icons li:nth-child(4) {
+    left: 300px;
+  }
+}
+
+@media (max-width: 500px) {
+  .results h2 {
+    font-size: 3rem;
+  }
+  .results-btn-container button {
+    width: 140px;
+    font-size: 2rem;
+  }
+  .results-icons li:nth-child(1) {
+    left: 100px;
+  }
+  .results-icons li:nth-child(2) {
+    left: 200px;
+  }
+  .results-icons li:nth-child(3), .results-icons li:nth-child(4) {
+    top: 0;
+  }
+  .results-icons li:nth-child(3) {
+    left: 100px;
+  }
+  .results-icons li:nth-child(4) {
+    left: 200px;
+  }
+}
+
+@media (max-width: 400px) {
+  .results-btn-container button {
+    width: 120px;
+    font-size: 1.5rem;
+  }
+  .results-icons li:nth-child(1) {
+    left: 50px;
+  }
+  .results-icons li:nth-child(2) {
+    left: 200px;
+  }
+  .results-icons li:nth-child(3), .results-icons li:nth-child(4) {
+    top: 0;
+  }
+  .results-icons li:nth-child(3) {
+    left: 50px;
+  }
+  .results-icons li:nth-child(4) {
+    left: 200px;
+  }
+}
+
+@media (max-width: 350px) {
+  .results h2 {
+    font-size: 2.5rem;
+  }
+  .results-btn-container button {
+    width: 105px;
+    padding: 5px 10px;
+    height: 50px;
+  }
+  .results-icons li:nth-child(1) {
+    left: 50px;
+  }
+  .results-icons li:nth-child(2) {
+    left: 150px;
+  }
+  .results-icons li:nth-child(3), .results-icons li:nth-child(4) {
+    top: 0;
+  }
+  .results-icons li:nth-child(3) {
+    left: 50px;
+  }
+  .results-icons li:nth-child(4) {
+    left: 150px;
+  }
+}
+
+@media (max-width: 300px) {
+  .results h2 {
+    font-size: 2rem;
+  }
+  .results-btn-container button {
+    width: 86px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  .results-icons li:nth-child(1) {
+    left: 20px;
+  }
+  .results-icons li:nth-child(2) {
+    left: 120px;
+  }
+  .results-icons li:nth-child(3), .results-icons li:nth-child(4) {
+    top: 0;
+  }
+  .results-icons li:nth-child(3) {
+    left: 20px;
+  }
+  .results-icons li:nth-child(4) {
+    left: 120px;
   }
 }

@@ -1,0 +1,48 @@
+// PLAY AREA media queries 
+@media (max-width: 1000px) {
+  .play {
+    #guess {font-size: 2rem;}
+  }
+}
+
+@media (max-width: 800px) {
+  .play {
+    h2 {font-size: 4rem;}
+    #guess {font-size: 2rem;}
+  }
+}
+
+@media (max-width: 600px) {
+  .play {
+    h2 {font-size: 2.5rem;}
+    #guess {font-size: 1.2rem; height: 30px;}
+    #spaces {font-size: 3.5rem;}
+  }
+}
+
+@media (max-width: 400px) {
+  .play {
+    h2 {font-size: 2rem;}
+    #guess {font-size: 1.5rem; width: 66%;}
+    #spaces {font-size: 3rem;}
+  }
+}
+
+@media (max-width: 350px) {
+  .play {
+    #guess {font-size: 1.5rem; width: 77%;}
+    #spaces {font-size: 2.8rem;}
+  }
+
+  main .play .flex-container .img-container {width:250px;} // Being very specific works here!
+}
+
+@media (max-width: 300px) {
+  .play {
+    #guess {font-size: 1.5rem; width: 89%;}
+    #spaces {font-size: 2.2rem; margin-top: 0;}
+  }
+
+  main .play .guess-container {margin-top: 0}
+  main .play .flex-container .img-container {width:200px;}
+}

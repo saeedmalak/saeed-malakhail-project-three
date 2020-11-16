@@ -1,0 +1,45 @@
+// HEADER media queries 
+@media (max-width: 900px) {
+  header {
+    h1 {font-size: 5rem;}
+  }
+}
+
+@media (max-width: 750px) {
+  header {
+    h1 {font-size: 4rem;}
+    p {font-size: 2.5rem;}
+  }
+}
+
+@media (max-width: 600px) {
+
+  header {
+    text-align: center;
+
+    h1 {font-size: 3rem;}
+    p {font-size: 2rem;}
+    button {font-size: 2rem; width: 125px; height: 50px;}
+  }
+}
+
+@media (max-width: 450px) {
+  header {
+    h1 {font-size: 2.5rem;}
+    p {font-size: 1.5rem;}
+    button {font-size: 2rem; width: 125px; height: 50px;}
+  }
+}
+
+@media (max-width: 400px) {
+  header {
+    p {line-height: 2;}
+  }
+}
+
+@media (max-width: 300px) {
+  header {
+    p {font-size: 1rem;}
+    p:nth-child(2) {margin:0};
+  }
+}

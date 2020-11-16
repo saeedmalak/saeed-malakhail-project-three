@@ -27,7 +27,7 @@ main .play {
         background: linear-gradient(to right, #1cd8d2, #93edc7);
       }
       .timer-alert {
-        animation: blinds 1s ease-in-out infinite alternate;
+        animation: blinds 1s ease-in-out infinite alternate; // create alert animations when timer starts to get closer to zero!
       }
     }
   }
@@ -46,6 +46,7 @@ main .play {
   }
 }
 
+// create alert animations when timer starts to get closer to zero!
 @keyframes blinds {
   to {
     background: linear-gradient(to right, #c21500, #ffc500);
